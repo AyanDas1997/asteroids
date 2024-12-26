@@ -26,7 +26,8 @@ def main():
             obj.update(dt)
         for asteroid in asteroids:
             if asteroid.has_collided(player):
-                sys.exit("Game over!")
+                print("Game over!")
+                sys.exit()
         screen.fill("black")
         for obj in drawable:
             obj.draw(screen)
