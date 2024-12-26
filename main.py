@@ -23,7 +23,7 @@ def main():
 
     asteroid_field = AsteroidField()
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-    
+
     dt = 0
 
     while(True):
@@ -35,6 +35,10 @@ def main():
             obj.update(dt)
         
         for asteroid in asteroids:
+            for shot in shots:
+                if asteroid.has_collided(shot):
+                    asteroid.kill()
+                    shot.kill()
             if asteroid.has_collided(player):
                 print("Game over!")
                 sys.exit()
